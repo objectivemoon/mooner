@@ -1,0 +1,182 @@
+.TH "mooner" "1"  "Monday 14 july 2014" "version 1"
+.SH NAME
+mooner - objectivemoon.io project data collector.
+.SH SYNOPSIS
+.B mooner [-i 
+.I interface
+.B ] [-v] [-V][-p 
+.I port
+.B ] [-d] [-r 
+.I <server name>[:<server port>]
+.B ] [-u ] [-a 
+.I size
+.B ] [-y] [-k 
+.I <public key>
+.B ] [-U
+.I login
+.B ] [-P 
+.I password
+.B ] [-T
+.I token
+.B ] [-s
+.I <service name>
+.B ] [ -e
+.I <rmq exchange name>
+.B ] [-q
+.I <rmq queue name>
+.B ] [ -t 
+.I <synflood time> 
+.B ] [ -l 
+.I <log file> 
+.B ]
+
+.SH DESCRIPTION
+
+.B mooner
+is a program that collect performance data from your web site. Basically, 
+.B mooner 
+listen on a tcp 
+.I port 
+and will get connection delta time from client and server in the tcp handshake.
+Those data will be send to a 
+.B moonwalker 
+server that will collect and restitute data at 
+.B http://houston.objectivemoon.io
+where you will be able to know if you have, and from where (client, server or
+network side), any performance issue on your web site.
+
+
+.SH OPTIONS
+
+.B -a size
+
+Max size of the tcp connection buffer. See 
+.I -t 
+option to get more information about that buffer, or visit http://ww.objectivemoon.io
+Default
+.B 420
+
+.B -d
+
+Debug option. In that mode, 
+.B mooner
+will send to logger debug information. Note that
+.B mooner
+will still fork a startup. See 
+.B -v
+option to not fork. Note to that there is no fork on OSX
+
+.B -V
+print version and exit
+
+.B -e <rmq exchange name>
+
+Rabbit-mq exchange name. Default 
+.B mooner
+
+.B -i interface
+
+This is the interface on which the
+.B mooner
+will listen. See libpcap for default interface
+
+.B -k <public key>
+
+NOT YET IMPLEMENTED. The mooner will use that public to send crypted data to the
+.B moonwalker
+
+.B -p port
+
+Port on which the mooner will listen for tcp connection to analyse. Default 
+.B 80
+
+.B -q <rmq queue name>
+
+name of rabbit-mq queue name. default 
+.B mooner
+
+.B -r <server name>[:<server port>]
+Name and port of a broker (rabbit-mq) where to send collected data. This option turn off
+.B -s 
+option
+
+.B -s <service name>
+Name of a service (DNS SRV) where to find a broker (rabbit-mq). Default 
+.B columbia.orbit.objectivemoon.io
+
+.B -t <synflood time>
+Buy defintion this service is subject to tcpsynflooding attact ...  what the hell is TCP :-( so here 
+You manage time before remove elements from the tcp buffer. Note that, you can change the buffer size 
+with 
+.B -a 
+option. Default 
+.B 5
+seconds
+
+.B -u
+
+usage. This option will exit the mooner
+
+.B -v
+
+verbose mode. The mooner will not fork at begining
+
+.B -P password
+
+Password to connect to the broker
+
+.B -T token
+
+As if you do -P 
+.I token 
+-U 
+.I token
+-T 
+.I token 
+-e 
+.I token
+Note that Token maximum size is 16 bytes.
+
+.B -U login
+
+Login to connect to the broker
+
+.SH BUGS 
+
+.B -k
+option has been not yet implemented 
+
+.B -l <file name>
+
+set the 
+.I <file name>
+where mooner will log. Note that option disable log on your favorite
+.I syslog
+which is the default log output. See
+.B -v 
+option for 
+.I stderr
+output
+
+.SH AUTHOR
+
+mooner@objectivemoon.io
+
+.SH SEE ALSO
+
+www.objectivemoon.io
+
+.SH EXAMPLE 
+
+.B ./mooner -dv -i eth0 -T 1234567812345678
+
+.B mooner
+will not fork, listen on port 80 of eth0 for any tcp connection, and will send data, but will display information.
+It will send a dns srv request to find
+.I orbit.objectivemoon.io
+service, and will try connect to a broker serveur, using login and password set as
+.I 1234567812345678
+and use default exchange routing key as
+.I mooner
+and queue as
+.I mooner

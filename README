@@ -1,0 +1,55 @@
+##
+##
+This is a part the objectivemoon project.
+
+The mooner purpose is to listen on a port, caluclate TCP
+handshake time and send those information to a queue like rabbit-mq
+
+##
+##
+Table of content
+
+1 - OS SPECIFIC INFORMATION
+2 - PRE-REQUESITE TO COMPILATION
+3 - COMPILATION
+4 - LAUNCH EXAMPLE
+
+##
+##
+1 - OS SPECIFIC INFO :
+
+MACOSX :
+
+On OSX daemon C library function is obsolete. So it as been #undefine at compilation
+
+You should use launchd system. Maybe see in package dir for OSX boot scripts
+
+##
+##
+2 - PRE-REQUESITE TO COMPILATION
+
+Mooner need following library :
+
+librabbitmq.1.1.1 (git submodule --> rabbitmq-c)
+libldns.1.6.13 (git sub module --> libldns)
+libpcap.0.8 (git sub module --> libpcap)
+
+You need a C compiler
+You need Cmake
+
+##
+##
+3 - COMPILATION
+
+cmake . 
+make
+
+##
+##
+4 - LAUNCH EXAMPLE
+
+collector/mooner -T GtUj67KAryl5Xpnz -i eth0 -p 80 -dv
+
+where -T is the token, if you don't have any token you can generate it by using makepasswd/moonpasswd command, where -i is the interface -p port number, -d for debud and v for vebose. 
+
+All options are describe in man page in man dir !

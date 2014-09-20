@@ -1,0 +1,13 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+
+PROJECT(objectivemoon C)
+
+INCLUDE_DIRECTORIES(include /usr/local/include) 
+ADD_DEFINITIONS(-Wall -pedantic -std=gnu99)
+
+
+ADD_SUBDIRECTORY(tools) 
+ADD_SUBDIRECTORY(top) 
+ADD_SUBDIRECTORY(collector) 
+ADD_SUBDIRECTORY(makepasswd) 
+ADD_SUBDIRECTORY(man)

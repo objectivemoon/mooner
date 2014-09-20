@@ -1,0 +1,14 @@
+0.b.1 : ajout d un message si jamais trop de synflood 
+0.b.2 : supression du exit en cas d erreur de creation de thread lors du scheduling
+0.b.3 : passage sur des thread en detach !
+0.b.4 : Integration d un mutex lors des changements de TTL + integration de fflush dans -l 
+0.c.0 : version qui a tenu dans les mains de gatean plus que 1 nuit ! :-)
+0.d.0 : supression de la libldns dans la liste des paquets depends ajout dans break ajout dans les lib installe et changement vers _status
+0.d.1 : changement dans le derease du ttl pour verifgie l existance de rmeserver
+0.d.2 : changement dans le derease du ttl pour verifgie l existance de rmeserver en mutex et plus en if de merde
+0.d.2b : changement de filtre et changenebt du gettimeofday dans anti_syn_flood (cpu problem)
+0.e.0 : ajout du systeme de hash table sur les ack pour optimiser les ack de "non ouverutre de session" et de l option -g :-)
+0.e.1 : avec les statistiques en plus de partout
+1.0   : try a launch !
+
+
