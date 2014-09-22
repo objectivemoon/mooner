@@ -44,7 +44,7 @@
 /*
 **
 */
-#define	MY_RELEASE		"1.0"
+#define	MY_RELEASE		"1.0.1"
 
 /*
 **

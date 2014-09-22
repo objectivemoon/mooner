@@ -10,5 +10,6 @@
 0.e.0 : ajout du systeme de hash table sur les ack pour optimiser les ack de "non ouverutre de session" et de l option -g :-)
 0.e.1 : avec les statistiques en plus de partout
 1.0   : try a launch !
+1.0.1 : Allocation size error of +1 in hash_tab_size : this segfault
 
 

@@ -1,6 +1,6 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 
-PROJECT(fnbcollector C)
+PROJECT(mooner C)
 
 link_directories(
     /usr/local/lib
@@ -12,7 +12,7 @@ FIND_LIBRARY(MOONTOOLS moontools ../lib)
 
 file(GLOB source_files *.c)
 
-ADD_EXECUTABLE(fnbcollector ${source_files})
+ADD_EXECUTABLE(moonpasswd ${source_files})
 
-TARGET_LINK_LIBRARIES(fnbcollector rabbitmq pcap ${MOONTOOLS} ldns pthread)
+TARGET_LINK_LIBRARIES(moonpasswd ${MOONTOOLS})
 
