@@ -44,8 +44,8 @@ t_env			*init_env()
   ret->to_exec[TH_SYN + TH_ACK]=set_synack_packet;
   ret->myhostname=get_my_hostname();
   ret->synflood_ret_time=GARBAGE_RETENTION_TIME;
-  ret->hash_ack=malloc(HASH_SIZE * sizeof(*ret->hash_ack));
-  memset(ret->hash_ack, ZERO, HASH_SIZE * sizeof(*ret->hash_ack));
+  ret->hash_ack=malloc((HASH_SIZE + 1) * sizeof(*ret->hash_ack));
+  memset(ret->hash_ack, ZERO, (HASH_SIZE + 1) * sizeof(*ret->hash_ack));
 
   return ret;
 }
