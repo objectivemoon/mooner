@@ -237,7 +237,7 @@ int				get_tot_false(int);
 int				*init_tab_weight(int, int);
 int				nbr_server_of_priority(int);
 int				get_pos_next_priority(int);
-void				write_pid_number();
+void				write_pid_number(char *);
 void				create_new_collector_code();
 void				mooner_exit(int);
 void				*send_metadata_to_rmq(void *);

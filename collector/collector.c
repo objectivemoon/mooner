@@ -42,7 +42,7 @@ int			main(int ac, char **av)
   if (e->option & OPT_GARBAGE)
     new_process(ac, av);
 #endif
-  write_pid_number();
+  write_pid_number(e->pidfile_path);
   if (IS_VERBOSE)
     {
       send_log(LOG_INFO, "[1] verbose : on\n");

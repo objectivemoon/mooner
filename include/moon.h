@@ -108,6 +108,7 @@
 #define RMQ_FNB_PASS		"fnb42!"
 #define GARBAGE_RETENTION_TIME	5
 #define DEFAULT_PID_FILE_PATH	"/var/run/objectivemoon/mooner/pid"
+#define CAP_PID_FILE_PATH	"/var/run/objectivemoon/mooner/capcanaveral_pid"
 #define PASSWD_FILE		"/var/run/objectivemoon/mooner/passwd"
 #define NBR_SEND_01M_FILE	"/var/run/objectivemoon/mooner/stat_01_nbrsend"
 #define NBR_SEND_05M_FILE	"/var/run/objectivemoon/mooner/stat_05_nbrsend"

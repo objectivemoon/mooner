@@ -65,22 +65,26 @@ void			new_process(int ac, char **av)
   int                   sac;
   char                  *param;
   int                   len;
+  int			nbr_restart;
 
+  nbr_restart=0;
   do {
     pid=fork();
     if (pid < 0)
       {
-	send_log(LOG_EMERG, "can't fork ! :-) \n");
+	send_log(LOG_EMERG, "[48] Can't fork not cool ! :-( \n");
 	
 	mooner_exit(1);
       }
     if (pid > 0)
       {
 #define		NEW_ARGV0	"cap canaveral launchpad"
+	write_pid_number(CAP_PID_FILE_PATH);
 	save_av_ac(&sav, &sac, &param, &len, ac, av);
 	replace_av0(ac, av, NEW_ARGV0);
 	wait(&status);
 	restore_av_ac(sav, sac, param, len, &ac, &av);
+	send_log(LOG_EMERG, "[49] restarting [%d]\n", ++nbr_restart);
       }
   } while (pid);
 }

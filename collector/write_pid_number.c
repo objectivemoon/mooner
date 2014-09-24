@@ -18,16 +18,16 @@
 #include "moon.h"
 #include "mooner.h"
 
-void			write_pid_number()
+void			write_pid_number(char *path)
 {
   pid_t			pid;
   FILE			*pidfile;
 
   pid=getpid();
-  pidfile=fopen(e->pidfile_path,"w");
+  pidfile=fopen(path,"w");
   if (pidfile == NULL)
     {
-      send_log(LOG_CRIT, "[40] can't open file [%s]\n", e->pidfile_path);
+      send_log(LOG_CRIT, "[40] can't open file [%s]\n", path);
       exit(1);
     }
   fprintf(pidfile,"%d\n",pid);

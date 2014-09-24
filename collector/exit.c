@@ -24,11 +24,8 @@
 */
 void			mooner_exit(int status)
 {
-  int			ret;
-
-  ret=unlink(e->pidfile_path);
-  if (ret < 0 && !(e->option & OPT_GARBAGE))
-    send_log(LOG_NOTICE, "[13] can't unlink file [%s]\n",e->pidfile_path);
+  unlink(CAP_PID_FILE_PATH);
+  unlink(e->pidfile_path);
   close_log_file();
   free(e->msg_tab);
   free_rmq_server_list();
