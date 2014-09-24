@@ -11,5 +11,6 @@
 0.e.1 : avec les statistiques en plus de partout
 1.0   : try a launch !
 1.0.1 : Allocation size error of +1 in hash_tab_size : this segfault
+1.0.2 : change for default 0-g option and a new pid for the launcher
 
 
