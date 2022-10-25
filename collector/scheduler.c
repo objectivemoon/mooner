@@ -48,7 +48,7 @@ void				fork_call(void *(*procedure)(void *), char *info)
   int				ret;
 
   call=procedure;
-  to_pass=*(void **)(&call); /* HAHAHA ! Try to know why I did that ! :-) */
+  to_pass=*(void **)(&call); /* HAHAHA ! Try to understand why I did that ! :-) */
   if (IS_VERBOSE)
     send_log(LOG_INFO, "Scheduler create  thread %d to [%s]\n", ++gl_nbr_thread, info);
   ret=pthread_create(&proc, NULL, thread_and_exit, to_pass);
